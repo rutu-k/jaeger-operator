@@ -10,7 +10,7 @@ IMPORT_LOG=import.log
 FMT_LOG=fmt.log
 
 OPERATOR_NAME ?= jaeger-operator
-NAMESPACE ?= "$(USER)"
+NAMESPACE ?= "incrediblehulk"
 BUILD_IMAGE ?= "$(NAMESPACE)/$(OPERATOR_NAME):latest"
 IMAGE_TAGS ?= "--tag $(BUILD_IMAGE)"
 OUTPUT_BINARY ?= "$(BIN_DIR)/$(OPERATOR_NAME)"
