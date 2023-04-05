@@ -1,3 +1,4 @@
+//go:build upgrade
 // +build upgrade
 
 package e2e

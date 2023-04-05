@@ -1,3 +1,4 @@
+//go:build autoscale
 // +build autoscale
 
 package e2e

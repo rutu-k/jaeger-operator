@@ -1,3 +1,4 @@
+//go:build self_provisioned_elasticsearch_kafka
 // +build self_provisioned_elasticsearch_kafka
 
 package e2e

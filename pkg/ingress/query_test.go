@@ -205,7 +205,7 @@ func TestQueryIngressQueryBasePathWithHosts(t *testing.T) {
 	assert.NotNil(t, dep.Spec.Rules[0].HTTP.Paths[0].Backend)
 }
 
-//TODO: Remove this test when ingress.secretName is removed from the spec
+// TODO: Remove this test when ingress.secretName is removed from the spec
 func TestQueryIngressDeprecatedSecretName(t *testing.T) {
 	jaeger := v1.NewJaeger(types.NamespacedName{Name: "TestQueryIngressDeprecatedSecretName"})
 
@@ -217,7 +217,7 @@ func TestQueryIngressDeprecatedSecretName(t *testing.T) {
 	assert.Equal(t, "test-secret", dep.Spec.TLS[0].SecretName)
 }
 
-//TODO: Remove this test when ingress.secretName is removed from the spec
+// TODO: Remove this test when ingress.secretName is removed from the spec
 func TestQueryIngressTLSOverridesDeprecatedSecretName(t *testing.T) {
 	jaeger := v1.NewJaeger(types.NamespacedName{Name: "TestQueryIngressTLSOverridesDeprecatedSecretName"})
 

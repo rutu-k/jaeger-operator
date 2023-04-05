@@ -1,7 +1,7 @@
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.16 as builder
+FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.17 as builder
 
-ARG JAEGER_VERSION
-ENV JAEGER_VERSION=${JAEGER_VERSION}
+ARG 1.27.0
+ENV JAEGER_VERSION=1.27.0
 
 COPY . /go/src/github.com/jaegertracing/jaeger-operator/
 WORKDIR /go/src/github.com/jaegertracing/jaeger-operator
@@ -15,11 +15,11 @@ RUN go mod download -x
 # by this way, we could avoid to using qemu, which slow down compiling process.
 # and usefully for language who support multi-arch build like go.
 # see last part of https://docs.docker.com/buildx/working-with-buildx/#build-multi-platform-images
-ARG TARGETARCH
+ARG amd64
 # when --platform=linux/amd64,linux/arm64
 #
 # for $TARGETARCH in "amd64 arm64" do
-RUN make gobuild OUTPUT_BINARY=/go/bin/jaeger-operator-${TARGETARCH} GOARCH=${TARGETARCH}
+RUN make gobuild OUTPUT_BINARY=/go/bin/jaeger-operator-amd64 GOARCH=amd64
 # done
 
 FROM registry.access.redhat.com/ubi8/ubi
@@ -40,9 +40,9 @@ RUN INSTALL_PKGS=" \
 COPY --from=builder /go/src/github.com/jaegertracing/jaeger-operator/scripts/* /scripts/
 
 # install operator binary
-ARG TARGETARCH
-COPY --from=builder /go/bin/jaeger-operator-${TARGETARCH} ${OPERATOR}
+ARG amd64
+COPY --from=builder /go/bin/jaeger-operator-amd64 jaeger-operator
 
 ENTRYPOINT ["/usr/local/bin/jaeger-operator"]
 
-USER ${USER_UID}:${USER_UID}
+USER $USER_UID:$USER_UID

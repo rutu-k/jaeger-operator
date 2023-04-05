@@ -1,3 +1,4 @@
+//go:build streaming
 // +build streaming
 
 package e2e

@@ -1,3 +1,4 @@
+//go:build self_provisioned_elasticsearch
 // +build self_provisioned_elasticsearch
 
 package e2e

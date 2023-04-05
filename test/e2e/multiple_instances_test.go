@@ -1,3 +1,4 @@
+//go:build multiple
 // +build multiple
 
 package e2e

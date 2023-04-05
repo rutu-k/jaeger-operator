@@ -33,7 +33,7 @@ func Bootstrap(ctx context.Context, namespace string) {
 	}
 }
 
-//SetInstanceID set the computed instance id on the tracing provider
+// SetInstanceID set the computed instance id on the tracing provider
 func SetInstanceID(ctx context.Context, namespace string) {
 	if viper.GetBool("tracing-enabled") {
 		// Rebuild the provider with the same exporter

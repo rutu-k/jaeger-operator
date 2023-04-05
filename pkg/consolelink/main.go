@@ -13,7 +13,7 @@ import (
 // RouteAnnotation used to annotate the link with the route name
 var RouteAnnotation = "consolelink.jaegertracing.io/route"
 
-//Name derived a console link resource name from jaeger instance
+// Name derived a console link resource name from jaeger instance
 func Name(jaeger *v1.Jaeger) string {
 	return "jaeger-" + jaeger.Namespace + "-" + jaeger.Name
 }

@@ -1,3 +1,4 @@
+//go:build token_propagation_elasticsearch
 // +build token_propagation_elasticsearch
 
 package e2e

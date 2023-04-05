@@ -1,3 +1,4 @@
+//go:build examples2
 // +build examples2
 
 package e2e
